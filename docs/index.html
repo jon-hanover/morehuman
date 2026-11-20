@@ -145,6 +145,10 @@
 
   @media (max-width: 600px) {
     main { padding: 14vh 16px 48px; }
+    /* Size the name and mission to the column width (viewport minus the 16px gutters),
+       so the name always sits on one line and the mission always wraps to three */
+    h1 { white-space: nowrap; font-size: calc((100vw - 32px) / 10.6); }
+    .mission { font-size: min(1.2rem, calc((100vw - 32px) / 21)); max-width: 400px; }
     footer { padding: 20px 16px; }
     .bg::after {
       background: linear-gradient(0deg, rgba(12, 11, 8, 0.78) 0%, rgba(12, 11, 8, 0.5) 60%, rgba(12, 11, 8, 0.4) 100%);
