@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #fbf7f0;
@@ -82,19 +82,8 @@
     margin: 0 0 28px;
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
   }
-  /* The A in the title is the favicon badge: cream pine on a green rounded square, dipping just below the baseline */
+  /* The A in the title is the pine mark inside an outlined rounded square, dipping just below the baseline */
   .a-mark { display: inline-block; height: 0.9em; width: 0.9em; vertical-align: -0.1em; margin-right: 0.05em; }
-  /* Script lead-in above the title */
-  .lead {
-    display: block;
-    font-family: "Allura", "Snell Roundhand", cursive;
-    font-weight: 400;
-    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-    line-height: 1;
-    letter-spacing: 0;
-    margin: 0 0 -0.02em 0.06em;
-    color: var(--ink);
-  }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   /* Keep the name on one line once there is room for it (laptops and up) */
   @media (min-width: 900px) {
@@ -174,7 +163,7 @@
   </div>
   <main>
     <div class="inner">
-      <h1><span class="lead">Building</span> <span class="sr-only">A</span><svg class="a-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="1" y="1" width="62" height="62" rx="14" fill="#24402f"/><path fill="#fbf7f0" d="M32 8 L55 54 H38.5 L32 41 L25.5 54 H9 Z"/></svg> More Human Future</h1>
+      <h1><span class="sr-only">A</span><svg class="a-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="currentColor" stroke-width="3.5"/><path fill="currentColor" d="M32 12 L52 52 H38 L32 40.5 L26 52 H12 Z"/></svg> More Human Future</h1>
       <p class="mission">A not-for-profit incubator of novel solutions to rediscover, recenter and revitalize our collective humanity in the Age of AI.</p>
 
       <p class="label">Our first program</p>
