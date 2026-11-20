@@ -174,7 +174,7 @@
   // Background cycle: each clip crossfades into the next instead of jumping back to its own start.
   // Only the upcoming clip is fetched while the current one plays.
   (function () {
-    var clips = ["forest", "fog-slope", "mist", "stream", "tall-trees", "sun-pines", "alps"]
+    var clips = ["forest", "fog-slope", "mist", "stream", "tall-trees", "meadow", "alps"]
       .map(function (n) { return "media/" + n + ".mp4"; });
     var FADE = 2; // seconds; matches the CSS transition
     var conn = navigator.connection || {};
