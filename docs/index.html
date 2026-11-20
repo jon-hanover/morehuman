@@ -76,6 +76,19 @@
     margin: 0 0 28px;
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
   }
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  }
+  /* Keep the name on one line once there is room for it (laptops and up) */
+  @media (min-width: 900px) {
+    h1 { white-space: nowrap; width: max-content; }
+  }
   .mission {
     font-family: "Fraunces", Georgia, serif;
     font-size: clamp(1.2rem, 3.2vw, 1.55rem);
@@ -84,6 +97,20 @@
     max-width: 32ch;
     text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
   }
+  /* Highlighter swipe behind the three verbs */
+  .mission mark {
+    color: inherit;
+    background: linear-gradient(transparent 54%, rgba(226, 138, 84, 0.82) 54%, rgba(226, 138, 84, 0.82) 94%, transparent 94%) no-repeat 0 0 / 0% 100%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.08em;
+    margin: 0 -0.08em;
+    animation: swipe 0.7s cubic-bezier(.3,.7,.3,1) forwards;
+  }
+  .mission mark:nth-of-type(1) { animation-delay: 0.5s; }
+  .mission mark:nth-of-type(2) { animation-delay: 0.85s; }
+  .mission mark:nth-of-type(3) { animation-delay: 1.2s; }
+  @keyframes swipe { to { background-size: 100% 100%; } }
   .label {
     font-size: 0.78rem;
     letter-spacing: 0.14em;
@@ -140,6 +167,7 @@
   /* Respect people who turn off motion: show the still frame instead */
   @media (prefers-reduced-motion: reduce) {
     .bg video { display: none; }
+    .mission mark { animation: none; background-size: 100% 100%; }
   }
 </style>
 </head>
@@ -151,8 +179,9 @@
   </div>
   <main>
     <div class="inner">
+      <p class="eyebrow">Building</p>
       <h1>A More Human Future</h1>
-      <p class="mission">A not-for-profit incubator of novel solutions to rediscover, recenter and revitalize our collective humanity in the Age of AI.</p>
+      <p class="mission">A not-for-profit incubator of novel solutions to <mark>rediscover</mark>, <mark>recenter</mark> and <mark>revitalize</mark> our collective humanity in the Age of AI.</p>
 
       <p class="label">Our first program</p>
       <a class="program" href="https://alignthefuture.org">
