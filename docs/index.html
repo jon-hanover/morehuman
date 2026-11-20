@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A More Human Future</title>
+<meta name="description" content="A nonprofit incubator of nonprofit organizations and programs aimed at rediscovering, recentering, and revitalizing our humanity in the age of AI.">
+<meta property="og:title" content="A More Human Future">
+<meta property="og:description" content="A nonprofit incubator of nonprofit organizations and programs aimed at rediscovering, recentering, and revitalizing our humanity in the age of AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f1e9;
+    --ink: #2b2620;
+    --muted: #6f6559;
+    --rule: #ddd3c4;
+    --accent: #9a4a2c;
+    --card: #fbf8f3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1915;
+      --ink: #efe7db;
+      --muted: #b0a596;
+      --rule: #3a342c;
+      --accent: #e0916c;
+      --card: #24201b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 18vh 24px 64px;
+  }
+  .mark {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    display: grid; place-items: center;
+    margin-bottom: 40px;
+  }
+  .mark span {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 7vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .mission {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(1.2rem, 3.2vw, 1.45rem);
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 56px;
+    max-width: 34ch;
+  }
+  .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .program {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 22px 24px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .program:hover, .program:focus-visible { border-color: var(--accent); transform: translateY(-1px); }
+  .program:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .program h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin: 0 0 6px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  }
+  .program h2 .arrow { color: var(--accent); font-family: "Inter", sans-serif; font-size: 1.1rem; }
+  .program p { margin: 0; color: var(--muted); font-size: 0.98rem; }
+  .soon { margin: 28px 0 0; color: var(--muted); font-size: 0.98rem; }
+  footer {
+    max-width: 680px; width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true"><span></span></div>
+    <h1>A More Human Future</h1>
+    <p class="mission">A nonprofit incubator of nonprofit organizations and programs aimed at rediscovering, recentering, and revitalizing our humanity in the age of AI.</p>
+
+    <p class="label">Our first program</p>
+    <a class="program" href="https://alignthefuture.org">
+      <h2>Align the Future <span class="arrow" aria-hidden="true">&rarr;</span></h2>
+      <p>An international program preparing emerging researchers, engineers, civic leaders, and founders to shape AI, grounded in the humanities.</p>
+    </a>
+
+    <p class="soon">More to come.</p>
+  </main>
+  <footer>&copy; 2026 A More Human Future &middot; Denver, Colorado</footer>
+</body>
+</html>
