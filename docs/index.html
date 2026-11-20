@@ -48,7 +48,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
   }
+  .bg video.on { opacity: 1; }
   /* Darkening wash so the text always reads, heavier on the left and bottom */
   .bg::after {
     content: "";
@@ -149,9 +152,8 @@
 </head>
 <body>
   <div class="bg" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="auto" poster="media/forest-poster.jpg">
-      <source src="media/forest.mp4" type="video/mp4">
-    </video>
+    <video class="on" autoplay muted loop playsinline preload="auto" poster="media/forest-poster.jpg" src="media/forest.mp4"></video>
+    <video muted loop playsinline preload="none"></video>
   </div>
   <main>
     <div class="inner">
@@ -168,5 +170,61 @@
     </div>
   </main>
   <footer><div class="inner">&copy; 2026 A More Human Future &middot; Denver, Colorado</div></footer>
+<script>
+  // Background cycle: each clip crossfades into the next instead of jumping back to its own start.
+  // Only the upcoming clip is fetched while the current one plays.
+  (function () {
+    var clips = ["forest", "fog-slope", "mist", "stream", "tall-trees", "sun-pines", "alps"]
+      .map(function (n) { return "media/" + n + ".mp4"; });
+    var FADE = 2; // seconds; matches the CSS transition
+    var conn = navigator.connection || {};
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || conn.saveData) return;
+
+    var vids = document.querySelectorAll(".bg video");
+    var cur = vids[0], nxt = vids[1], i = 0, fading = false, skips = 0;
+
+    function queueNext() {
+      nxt.autoplay = false; // the first element autoplays; stop it starting hidden clips on its own
+      nxt.preload = "auto";
+      nxt.src = clips[(i + 1) % clips.length];
+      nxt.load();
+    }
+
+    function onTime() {
+      if (fading || !cur.duration || cur.currentTime < cur.duration - FADE) return;
+      // If the next clip has not buffered yet, the current one simply loops and we try again next pass.
+      if (nxt.readyState < 3) return;
+      fading = true;
+      nxt.currentTime = 0;
+      var p = nxt.play();
+      if (p && p.catch) p.catch(function () {});
+      nxt.classList.add("on");
+      cur.classList.remove("on");
+      var old = cur;
+      cur = nxt; nxt = old; i = (i + 1) % clips.length;
+      setTimeout(function () {
+        old.pause();
+        old.removeEventListener("timeupdate", onTime);
+        cur.addEventListener("timeupdate", onTime);
+        queueNext();
+        fading = false;
+      }, FADE * 1000 + 100);
+    }
+
+    // If a clip fails to load, skip past it (but give up rather than spin if everything fails)
+    function onErr(e) {
+      if (e.target !== nxt || ++skips >= clips.length) return;
+      i = (i + 1) % clips.length;
+      queueNext();
+    }
+    vids[0].addEventListener("error", onErr);
+    vids[1].addEventListener("error", onErr);
+
+    cur.addEventListener("timeupdate", onTime);
+    // Autoplay may already be running by the time this script executes
+    if (!cur.paused && cur.readyState > 2) queueNext();
+    else cur.addEventListener("playing", queueNext, { once: true });
+  })();
+</script>
 </body>
 </html>
