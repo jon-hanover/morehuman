@@ -82,6 +82,9 @@
     margin: 0 0 28px;
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
   }
+  /* The A in the title is the pine mark from the favicon, sized to the font's capital height */
+  .a-mark { display: inline-block; height: 0.70em; width: 0.66em; vertical-align: baseline; margin-right: 0.02em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   /* Keep the name on one line once there is room for it (laptops and up) */
   @media (min-width: 900px) {
     h1 { white-space: nowrap; width: max-content; }
@@ -160,7 +163,7 @@
   </div>
   <main>
     <div class="inner">
-      <h1>A More Human Future</h1>
+      <h1><span class="sr-only">A</span><svg class="a-mark" viewBox="9 8 46 46" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M32 8 L55 54 H38.5 L32 41 L25.5 54 H9 Z"/></svg> More Human Future</h1>
       <p class="mission">A not-for-profit incubator of novel solutions to rediscover, recenter and revitalize our collective humanity in the Age of AI.</p>
 
       <p class="label">Our first program</p>
